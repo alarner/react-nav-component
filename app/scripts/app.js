@@ -4,7 +4,8 @@ export default React.createClass({
 	getDefaultProps: function() {
 		return {
 			breakpoint: 480,
-			icon: <img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAACWAAAAfYCAMAAACdNRYZAAAAA3NCSVQICAjb4U/gAAAACXBIWXMA
+			styles: '',
+			icon: <img style={{height: '3em'}} src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAACWAAAAfYCAMAAACdNRYZAAAAA3NCSVQICAjb4U/gAAAACXBIWXMA
 AGsoAABrKAGR9AOLAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAABt0RVh0
 VGl0bGUASGFtYnVyZ2VyIChNZW51KSBJY29uiySdswAAABR0RVh0QXV0aG9yAERhbmllbCBGb3ds
 ZXInSwyjAAAAqXRFWHREZXNjcmlwdGlvbgBBIHNpbXBsZSBhbmQgYmFzaWMgaGFtYnVyZ2VyICht
@@ -294,10 +295,6 @@ AAAA9Nl/AGw+fihndOWeAAAAAElFTkSuQmCC" />
 		};
 	},
 	render: function() {
-		const iconStyle = {
-			height: '3em',
-			color: 'red'
-		};
 		if(this.state.width < parseInt(this.props.breakpoint)) {
 			let links = null;
 			if(this.state.linksVisible) {
@@ -308,8 +305,8 @@ AAAA9Nl/AGw+fihndOWeAAAAAElFTkSuQmCC" />
 				);
 			}
 			return (
-				<div onClick={this.toggleLinks}>
-					<div style={iconStyle}>{this.props.icon}</div>
+				<div className="burger" onClick={this.toggleLinks}>
+					<div className="iconDiv" style={this.props.styles.icon}>{this.props.icon}</div>
 					{links}
 				</div>
 			);
