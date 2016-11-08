@@ -4,8 +4,12 @@ export default React.createClass({
 	getDefaultProps: function() {
 		return {
 			breakpoint: 480,
-			styles: '',
-			icon: <img style={{height: '3em'}} src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAACWAAAAfYCAMAAACdNRYZAAAAA3NCSVQICAjb4U/gAAAACXBIWXMA
+			styles: {
+				icon: {
+					// height: '3em'
+				}
+			},
+			icon: <img style={{height: '3em', padding: 0}} src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAACWAAAAfYCAMAAACdNRYZAAAAA3NCSVQICAjb4U/gAAAACXBIWXMA
 AGsoAABrKAGR9AOLAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAABt0RVh0
 VGl0bGUASGFtYnVyZ2VyIChNZW51KSBJY29uiySdswAAABR0RVh0QXV0aG9yAERhbmllbCBGb3ds
 ZXInSwyjAAAAqXRFWHREZXNjcmlwdGlvbgBBIHNpbXBsZSBhbmQgYmFzaWMgaGFtYnVyZ2VyICht
@@ -299,7 +303,7 @@ AAAA9Nl/AGw+fihndOWeAAAAAElFTkSuQmCC" />
 			let links = null;
 			if(this.state.linksVisible) {
 				links = (
-					<div>
+					<div style={{color: 'black', float: 'right', clear: 'both', textDecoration: 'none', padding: '0.5em 0'}}>
 						{this.props.children}
 					</div>
 				);
