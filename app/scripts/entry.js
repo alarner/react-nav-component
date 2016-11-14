@@ -31,6 +31,11 @@ const nav = (
 					// backgroundColor: 'red',
 					padding: '1em',
 					float: 'right'
+				},
+				links: {
+					color: 'red',
+					float: 'right',
+					fontSize: '3em'
 				}
 			}}
 		>

@@ -299,12 +299,14 @@ AAAA9Nl/AGw+fihndOWeAAAAAElFTkSuQmCC" />
 		};
 	},
 	render: function() {
+		const childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, {style: {{this.props.styles.links}}}));
+			// {style: {color: 'black', float: 'right', clear: 'both', textDecoration: 'none', padding: '0.5em 0'}}
 		if(this.state.width < parseInt(this.props.breakpoint)) {
 			let links = null;
 			if(this.state.linksVisible) {
 				links = (
-					<div style={{color: 'black', float: 'right', clear: 'both', textDecoration: 'none', padding: '0.5em 0'}}>
-						{this.props.children}
+					<div>
+						{childrenWithProps}
 					</div>
 				);
 			}
@@ -317,7 +319,7 @@ AAAA9Nl/AGw+fihndOWeAAAAAElFTkSuQmCC" />
 		}
 		return (
 			<div>
-				{this.props.children}
+				{childrenWithProps}
 			</div>
 		);
 	},
