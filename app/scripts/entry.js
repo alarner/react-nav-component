@@ -3,41 +3,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Links from './app';
 
+const navStyles = {
+	container: {
+		overflow: 'hidden',
+		backgroundColor: '#9FC1CE'
+	},
+	logoSrc: 'http://www.fillmurray.com/50/50',
+	logo: {
+		float: 'left',
+		padding: '0.5em',
+		height: '4em'
+	},
+	breakpoint: '480px'
+};
+
 const nav = (
 	<div 
-		className="outside"
-		style={{
-			overflow: 'hidden',
-			backgroundColor: '#9FC1CE'
-		}}
-	>
-		
-			<img 
-				src="http://www.fillmurray.com/50/50"
-				style={{
-					float: 'left',
-					padding: '0.6em 1em',
-					height: '3.9em'
-					
-				}}
-
-			></img>
-		
+		style={navStyles.container}>
+		<img 
+			src={navStyles.logoSrc}
+			style={navStyles.logo}></img>
 		<Links 
-			breakpoint="480px"
-			styles={{
-				icon: {
-					// height: '8em',
-					// backgroundColor: 'red',
-					padding: '1em',
-					float: 'right'
-				},
-				links: {
-					color: 'red',
-					float: 'right',
-					fontSize: '3em'
-				}
-			}}
+			breakpoint={navStyles.breakpoint}
 		>
 			<a href="#">Home</a>
 			<a href="#">Blog</a>
@@ -47,3 +34,4 @@ const nav = (
 );
 
 ReactDOM.render(nav, document.getElementById('app'));
+
