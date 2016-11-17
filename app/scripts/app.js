@@ -13,10 +13,16 @@ export default React.createClass({
 					float: 'right',
 					clear: 'both'
 				},
+				narrowLink: {
+					color: 'red'
+				},
 				wideLinks: {
 					float: 'right',
 					lineHeight: '5em',
 					paddingRight: '0.5em'
+				},
+				wideLink: {
+					margin: '2em'
 				}
 			}
 		};
@@ -34,6 +40,16 @@ export default React.createClass({
 		};
 	},
 	render: function() {
+		// Console log shows exactly what it should, but if I use it in the cloneElement() function, I get an undefined error
+		console.log(this.props.styles.narrowLink);
+		// Adds props to the individual link elements on small screens
+		const childrenWithPropsNarrow = React.Children.map(this.props.children, function(child) {
+			return React.cloneElement(child, { style: {color: 'red'} });
+		});
+		// Adds props to the individual link elements on larger screens
+		const childrenWithPropsWide = React.Children.map(this.props.children, function(child) {
+			return React.cloneElement(child, { style: {color: 'red'} });
+		});
 		// Tests screen width against breakpoint setting to show or
 		// not show the dropdown menu
 		if(this.state.width < parseInt(this.props.breakpoint)) {
@@ -41,7 +57,7 @@ export default React.createClass({
 			if(this.state.linksVisible) {
 				links = (
 					<div style={this.props.styles.narrowLinks}>
-						{this.props.children}
+						{childrenWithPropsNarrow}
 					</div>
 				);
 			}
@@ -57,7 +73,7 @@ export default React.createClass({
 		// Returns the links on larger screens
 		return (
 			<div style={this.props.styles.wideLinks}>
-				{this.props.children}
+				{childrenWithPropsWide}
 			</div>
 		);
 	},
