@@ -1,6 +1,8 @@
 import React from 'react';
 import icon from './icon';
 
+var linkStyle = {color: 'green'};
+
 export default React.createClass({
 	getDefaultProps: function() {
 		return {
@@ -44,11 +46,11 @@ export default React.createClass({
 		console.log(this.props.styles.narrowLink);
 		// Adds props to the individual link elements on small screens
 		const childrenWithPropsNarrow = React.Children.map(this.props.children, function(child) {
-			return React.cloneElement(child, { style: {color: 'red'} });
+			return React.cloneElement(child, { style: {linkStyle} });
 		});
 		// Adds props to the individual link elements on larger screens
 		const childrenWithPropsWide = React.Children.map(this.props.children, function(child) {
-			return React.cloneElement(child, { style: {color: 'red'} });
+			return React.cloneElement(child, { style: {linkStyle} });
 		});
 		// Tests screen width against breakpoint setting to show or
 		// not show the dropdown menu
