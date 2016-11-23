@@ -1,8 +1,6 @@
 import React from 'react';
 import icon from './icon';
 
-var linkStyle = {color: 'green'};
-
 export default React.createClass({
 	getDefaultProps: function() {
 		return {
@@ -10,22 +8,20 @@ export default React.createClass({
 			// a user changing the defaults from the entry.js code
 			breakpoint: 480,
 			icon: <img style={{height: '4em', padding: '0.5em', float: 'right'}} src={icon} />,
-			styles: {
-				narrowLinks: {
-					float: 'right',
-					clear: 'both'
-				},
-				narrowLink: {
-					color: 'red'
-				},
-				wideLinks: {
-					float: 'right',
-					lineHeight: '5em',
-					paddingRight: '0.5em'
-				},
-				wideLink: {
-					margin: '2em'
-				}
+			narrowLinks: {
+				float: 'right',
+				clear: 'both'
+			},
+			narrowLink: {
+				color: 'red'
+			},
+			wideLinks: {
+				float: 'right',
+				lineHeight: '5em',
+				paddingRight: '0.5em'
+			},
+			wideLink: {
+				margin: '2em'
 			}
 		};
 	},
@@ -43,14 +39,14 @@ export default React.createClass({
 	},
 	render: function() {
 		// Console log shows exactly what it should, but if I use it in the cloneElement() function, I get an undefined error
-		console.log(this.props.styles.narrowLink);
+		console.log(this.props.narrowLink);
 		// Adds props to the individual link elements on small screens
 		const childrenWithPropsNarrow = React.Children.map(this.props.children, function(child) {
-			return React.cloneElement(child, { style: {linkStyle} });
+			return React.cloneElement(child, { style: {color: 'red'} });
 		});
 		// Adds props to the individual link elements on larger screens
 		const childrenWithPropsWide = React.Children.map(this.props.children, function(child) {
-			return React.cloneElement(child, { style: {linkStyle} });
+			return React.cloneElement(child, { style: {color: 'red'} });
 		});
 		// Tests screen width against breakpoint setting to show or
 		// not show the dropdown menu
@@ -58,7 +54,7 @@ export default React.createClass({
 			let links = null;
 			if(this.state.linksVisible) {
 				links = (
-					<div style={this.props.styles.narrowLinks}>
+					<div style={this.props.narrowLinks}>
 						{childrenWithPropsNarrow}
 					</div>
 				);
@@ -74,7 +70,7 @@ export default React.createClass({
 		}
 		// Returns the links on larger screens
 		return (
-			<div style={this.props.styles.wideLinks}>
+			<div style={this.props.wideLinks}>
 				{childrenWithPropsWide}
 			</div>
 		);
