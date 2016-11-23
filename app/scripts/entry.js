@@ -19,8 +19,10 @@ const navStyles = {
 
 const nav = (
 	<div 
+		className="navContainer"
 		style={navStyles.container}>
 		<img 
+			className="logo"
 			src={navStyles.logoSrc}
 			style={navStyles.logo}></img>
 		<Links 
@@ -34,4 +36,3 @@ const nav = (
 );
 
 ReactDOM.render(nav, document.getElementById('app'));
-
