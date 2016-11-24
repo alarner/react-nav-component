@@ -27,16 +27,22 @@ export default React.createClass({
 				textDecoration: 'none',
 				display: 'block',
 				fontSize: '1.3em',
+				margin: '0.5em 0.5em 0.5em 0'
 				// margin: '0.3em 0.3em 0.3em 0'
 			},
 			wideLinks: {
 				float: 'right',
-				lineHeight: '5em'
+				lineHeight: '5em',
+				margin: '0'
 				// paddingRight: '0.5em'
 			},
 			wideLink: {
 				// margin: '2em',
-				color: '#fff'
+				color: '#fff',
+				marginRight: '1.5em',
+				color: '#fff',
+				textDecoration: 'none',
+				fontSize: '1.3em'
 			}
 		};
 	},
@@ -53,8 +59,6 @@ export default React.createClass({
 		};
 	},
 	render: function() {
-		// Console log shows exactly what it should, but if I use it in the cloneElement() function, I get an undefined error
-		console.log(this.props.narrowLink);
 		// Adds props to the individual link elements on small screens
 		const childrenWithPropsNarrow = React.Children.map(this.props.children, (child) => React.cloneElement(child, { style: this.props.narrowLink, className: 'narrowLink' }));
 		// Adds props to the individual link elements on larger screens

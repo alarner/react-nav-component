@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import Links from './app';
 
 const navStyles = {
-	container: {
+	navContainer: {
 		overflow: 'hidden',
 		backgroundColor: '#9FC1CE'
 	},
@@ -20,7 +20,7 @@ const navStyles = {
 const nav = (
 	<div 
 		className="navContainer"
-		style={navStyles.container}>
+		style={navStyles.navContainer}>
 		<img 
 			className="logo"
 			src={navStyles.logoSrc}
