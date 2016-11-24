@@ -17,12 +17,12 @@ export default React.createClass({
 			// a user changing the defaults from the entry.js code
 			breakpoint: 480,
 			icon: <img className="toggleImg" style={{height: '4em', padding: '0.5em', float: 'right'}} src={icon} />,
-			narrowLinks: {
+			narrowChildren: {
 				float: 'right',
 				clear: 'both',
 				textAlign: 'right'
 			},
-			narrowLink: {
+			narrowChild: {
 				color: '#fff',
 				textDecoration: 'none',
 				display: 'block',
@@ -30,13 +30,13 @@ export default React.createClass({
 				margin: '0.5em 0.5em 0.5em 0'
 				// margin: '0.3em 0.3em 0.3em 0'
 			},
-			wideLinks: {
+			wideChildren: {
 				float: 'right',
 				lineHeight: '5em',
 				margin: '0'
 				// paddingRight: '0.5em'
 			},
-			wideLink: {
+			wideChild: {
 				// margin: '2em',
 				color: '#fff',
 				marginRight: '1.5em',
@@ -60,16 +60,16 @@ export default React.createClass({
 	},
 	render: function() {
 		// Adds props to the individual link elements on small screens
-		const childrenWithPropsNarrow = React.Children.map(this.props.children, (child) => React.cloneElement(child, { style: this.props.narrowLink, className: 'narrowLink' }));
+		const childrenWithPropsNarrow = React.Children.map(this.props.children, (child) => React.cloneElement(child, { style: this.props.narrowChild, className: 'narrowChild' }));
 		// Adds props to the individual link elements on larger screens
-		const childrenWithPropsWide = React.Children.map(this.props.children, (child) => React.cloneElement(child, { style: this.props.wideLink, className: 'wideLink' }));
+		const childrenWithPropsWide = React.Children.map(this.props.children, (child) => React.cloneElement(child, { style: this.props.wideChild, className: 'wideChild' }));
 		// Tests screen width against breakpoint setting to show or
 		// not show the dropdown menu
 		if(this.state.width < parseInt(this.props.breakpoint)) {
 			let links = null;
 			if(this.state.linksVisible) {
 				links = (
-					<div className="narrowLinks" style={this.props.narrowLinks}>
+					<div className="narrowChildren" style={this.props.narrowChildren}>
 						{childrenWithPropsNarrow}
 					</div>
 				);
@@ -77,7 +77,7 @@ export default React.createClass({
 			// Returns the dropdown icon with dropdown link menu
 			// for smaller (mobile) screens
 			return (
-				<div className="toggleContainer" onClick={this.toggleLinks}>
+				<div className="toggleContainer" onClick={this.toggleChildren}>
 					<div className="toggleDiv">{this.props.icon}</div>
 					{links}
 				</div>
@@ -85,13 +85,13 @@ export default React.createClass({
 		}
 		// Returns the links on larger screens
 		return (
-			<div className="wideLinks" style={this.props.wideLinks}>
+			<div className="wideChildren" style={this.props.wideChildren}>
 				{childrenWithPropsWide}
 			</div>
 		);
 	},
 	// Shows/hides links when click on dropdown icon
-	toggleLinks: function() {
+	toggleChildren: function() {
 		this.setState({
 			linksVisible: !this.state.linksVisible
 		});

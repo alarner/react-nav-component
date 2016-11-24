@@ -1,19 +1,26 @@
-# Basic Webpack Boilerplate
+#Reusable React Navbar Component
 
-With the following features:
+This navbar is built with React. It utilizes React's ```getDefaultProps``` to set initial styling which can be overridden by a user, either by using a styling variable or by using the built-in class name structure below.
 
-* Sass compiled to css in an external stylesheet
-* ES2015
-* An app directory for development and a dist folder for builds
-* Static compilation of jpg and png images
-* Nothing else
+```css
+.navContainer {
+	.logo {}
+	.toggleContainer {
+		.toggleDiv{
+			.toggleImg {}
+		}
+		.narrowChildren{
+			.narrowChild{}
+		}
+		.wideChildren{
+			.wideChild{}
+		}
+	}
+}
+```
 
-### To use this on a new project
-* Clone the repo!
-* Change the remote!
-* Install the packages with `npm install`!
-* To start the dev server run `webpack-dev-server --progress --colors`
-  * Your project is now live at 'localhost:8080' and livereloaded on change at 'localhost:8080/webpack-dev-server'
-* To build your assets into the `dist` directory run `webpack`
-* **NEVER TOUCH THE CONTENTS OF THE DIST FOLDER**
-* Build whatever you like in the app folder
+A user should also set the ```body``` to ```margin: 0```
+
+The default style naming convention is the same as the class name structure.
+
+The logo on the left can be turned off by adding a ```display: none```
