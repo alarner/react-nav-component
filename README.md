@@ -24,3 +24,8 @@ A user should also set the ```body``` to ```margin: 0```
 The default style naming convention is the same as the class name structure.
 
 The logo on the left can be turned off by adding a ```display: none```
+
+###Dependencies
+
+* React
+* ReactDOM

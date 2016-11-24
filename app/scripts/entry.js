@@ -1,7 +1,7 @@
 import './../styles/main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Links from './app';
+import TinyNav from './app';
 
 const navStyles = {
 	navContainer: {
@@ -25,13 +25,13 @@ const nav = (
 			className="logo"
 			src={navStyles.logoSrc}
 			style={navStyles.logo}></img>
-		<Links 
+		<TinyNav 
 			breakpoint={navStyles.breakpoint}
 		>
 			<a href="#">Home</a>
 			<a href="#">Blog</a>
 			<a href="#">Projects</a>
-		</Links>
+		</TinyNav>
 	</div>
 );
 
