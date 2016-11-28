@@ -1,14 +1,14 @@
 {
-  "name": "webpackPractice",
+  "name": "react-nav-component",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/app.build.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --progress --colors"
   },
   "keywords": [],
-  "author": "NicerHugs",
+  "author": "Dan Buda",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.5.2",

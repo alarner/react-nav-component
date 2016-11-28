@@ -4,7 +4,10 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   // specify the path for the entrypoint into our app.
-  entry: "./app/scripts/entry.js",
+  entry: {
+    app: './app/scripts/app.js',
+    example: './app/scripts/entry.js'
+  },
 
   output: {
 
@@ -12,7 +15,7 @@ module.exports = {
     path: "dist",
 
     //specify that the resultant bundle should be built in the bundle.js file
-    filename: "bundle.js"
+    filename: '[name].build.js'
   },
   module: {
     loaders: [
